@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatDicesTeam.Graphs.Generation", "src\CombatDicesTeam.Graphs.Generation\CombatDicesTeam.Graphs.Generation.csproj", "{C55F4B9C-E153-486C-8165-D4959E183010}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7123DDCD-7E42-41BE-BAE3-235D4CC04F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatDicesTeam.Graphs.Generation.Tests", "tests\CombatDicesTeam.Graphs.Generation.Tests\CombatDicesTeam.Graphs.Generation.Tests.csproj", "{AFB01F53-6702-45E0-BC8E-CD608728E5B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C55F4B9C-E153-486C-8165-D4959E183010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55F4B9C-E153-486C-8165-D4959E183010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55F4B9C-E153-486C-8165-D4959E183010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55F4B9C-E153-486C-8165-D4959E183010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB01F53-6702-45E0-BC8E-CD608728E5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB01F53-6702-45E0-BC8E-CD608728E5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB01F53-6702-45E0-BC8E-CD608728E5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB01F53-6702-45E0-BC8E-CD608728E5B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFB01F53-6702-45E0-BC8E-CD608728E5B4} = {7123DDCD-7E42-41BE-BAE3-235D4CC04F48}
+	EndGlobalSection
+EndGlobal
