@@ -44,14 +44,14 @@ jobs:
           REPORT=$(cat "./inspection_report.txt")
           echo $REPORT
         working-directory: ${{env.working-directory}}
-        
+
       - name: Find Comment of goblin
         uses: peter-evans/find-comment@v2
         id: fc
         with:
           issue-number: 1
           body-includes: cyber-goblin-marker
-        
+
       - uses: mshick/add-pr-comment@v2
         with:
           message-id: ${{ steps.fc.outputs.comment-id }}
