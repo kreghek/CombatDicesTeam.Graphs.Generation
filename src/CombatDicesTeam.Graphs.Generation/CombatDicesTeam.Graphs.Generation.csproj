@@ -23,7 +23,7 @@
 
     <PropertyGroup>
         <Authors>Pavel Kurkutov</Authors>
-        <Description>Lightweight library to generate graphs.</Description>
+        <Description>Lightweight library to generate graphs. The library was made for the indie game devs, so as not to pull monstrous enterprise solutions for working with graphs into small pet-games.</Description>
 
         <!-- PackageProjectUrl is different from the repository URL. It can be a documentation
              website or a website explaining the project -->
@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CombatDicesTeam.Graphs" Version="1.0.1" />
+      <PackageReference Include="CombatDicesTeam.Graphs" Version="1.*" />
     </ItemGroup>
 
     <ItemGroup>

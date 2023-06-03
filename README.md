@@ -4,7 +4,7 @@ The simplest lightweight library to generate graphs.
 
 ## Usage
 
-Generation by template of ways. The ways is easy to generate.
+Generation by template of ways. The ways is easily to generate that whole graph.
 
 ```c#
 // 1. Create graph of ways.
