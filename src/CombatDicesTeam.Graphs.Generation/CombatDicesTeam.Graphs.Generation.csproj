@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CombatDicesTeam.Graphs" Version="0.2.0-alpha" />
+      <PackageReference Include="CombatDicesTeam.Graphs" Version="1.0.1" />
     </ItemGroup>
 
     <ItemGroup>
