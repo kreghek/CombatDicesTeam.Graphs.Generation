@@ -18,7 +18,7 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
 
         var materializedWays = wayGraph.GetAllNodes().Select(x => new { Way = x, Nodes = CreateWayNodes(x) }).ToArray();
         
-        var graph = new Graph<TNodePayload>();
+        var graph = new DirectedGraph<TNodePayload>();
 
         foreach (var materializedWay in materializedWays)
         {
@@ -44,7 +44,7 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
         return graph;
     }
 
-    private static void ConnectNodes(Graph<TNodePayload> graph, IList<IGraphNode<TNodePayload>> nodes)
+    private static void ConnectNodes(IGraph<TNodePayload> graph, IList<IGraphNode<TNodePayload>> nodes)
     {
         IGraphNode<TNodePayload>? prevNode = null;
         foreach (var graphNode in nodes)
