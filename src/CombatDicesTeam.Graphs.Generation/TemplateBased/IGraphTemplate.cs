@@ -13,13 +13,6 @@ namespace CombatDicesTeam.Graphs.Generation.TemplateBased;
 public interface IGraphTemplate<TNodePayload>
 {
     /// <summary>
-    /// Create graph node with concrete data.
-    /// </summary>
-    /// <param name="context">Generation context to control graph node creation.</param>
-    /// <returns>Graph node with concrete data.</returns>
-    IGraphNode<TNodePayload> Create(IGraphTemplateContext<TNodePayload> context);
-
-    /// <summary>
     /// Validate template can create graph node before creation.
     /// </summary>
     /// <param name="context">Generation context to control graph node creation.</param>
@@ -28,4 +21,11 @@ public interface IGraphTemplate<TNodePayload>
     /// You can use it if you create template wrapper to make variation of final node.
     /// </remarks>
     bool CanCreate(IGraphTemplateContext<TNodePayload> context);
+
+    /// <summary>
+    /// Create graph node with concrete data.
+    /// </summary>
+    /// <param name="context">Generation context to control graph node creation.</param>
+    /// <returns>Graph node with concrete data.</returns>
+    IGraphNode<TNodePayload> Create(IGraphTemplateContext<TNodePayload> context);
 }
