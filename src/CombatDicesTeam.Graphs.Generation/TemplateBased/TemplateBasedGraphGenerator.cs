@@ -2,6 +2,10 @@ using JetBrains.Annotations;
 
 namespace CombatDicesTeam.Graphs.Generation.TemplateBased;
 
+/// <summary>
+/// Implemetation of graph generator based on templates and ways.
+/// </summary>
+/// <typeparam name="TNodePayload">Type of graph node data.</typeparam>
 [PublicAPI]
 public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<TNodePayload>
 {
@@ -12,13 +16,14 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
         _config = config;
     }
 
+    /// <inheritdoc/>
     public IGraph<TNodePayload> Create()
     {
         var wayGraph = _config.WayGraph;
 
-        var materializedWays = wayGraph.GetAllNodes().Select(x => new { Way = x, Nodes = CreateWayNodes(x) }).ToArray();
+        var materializedWays = wayGraph.GetAllNodes().Select(x => new { Way = x, Nodes = TemplateBasedGraphGenerator<TNodePayload>.CreateWayNodes(x) }).ToArray();
         
-        var graph = new Graph<TNodePayload>();
+        var graph = new DirectedGraph<TNodePayload>();
 
         foreach (var materializedWay in materializedWays)
         {
@@ -44,7 +49,7 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
         return graph;
     }
 
-    private static void ConnectNodes(Graph<TNodePayload> graph, IList<IGraphNode<TNodePayload>> nodes)
+    private static void ConnectNodes(IGraph<TNodePayload> graph, IList<IGraphNode<TNodePayload>> nodes)
     {
         IGraphNode<TNodePayload>? prevNode = null;
         foreach (var graphNode in nodes)
@@ -59,7 +64,7 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
         }
     }
 
-    private IList<IGraphNode<TNodePayload>> CreateWayNodes(IGraphNode<GraphWay<TNodePayload>> way)
+    private static IList<IGraphNode<TNodePayload>> CreateWayNodes(IGraphNode<GraphWay<TNodePayload>> way)
     {
         var list = new List<IGraphNode<TNodePayload>>();
         foreach (var wayTemplate in way.Payload.WayTemplates)
@@ -70,29 +75,5 @@ public sealed class TemplateBasedGraphGenerator<TNodePayload>: IGraphGenerator<T
         }
 
         return list;
-    }
-
-    private static IReadOnlyCollection<IGraphNode<TNodePayload1>> GetRoots<TNodePayload1>(IGraph<TNodePayload1> graph)
-    {
-        // Look node are not targets for other nodes.
-
-        var nodesOpenList = graph.GetAllNodes().ToList();
-
-        foreach (var node in nodesOpenList.ToArray())
-        {
-            var otherNodes = graph.GetAllNodes().Where(x => x != node).ToArray();
-
-            foreach (var otherNode in otherNodes)
-            {
-                var nextNodes = graph.GetNext(otherNode);
-
-                if (nextNodes.Contains(node))
-                {
-                    nodesOpenList.Remove(node);
-                }
-            }
-        }
-
-        return nodesOpenList;
     }
 }

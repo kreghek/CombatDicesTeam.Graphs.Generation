@@ -23,7 +23,7 @@ public class TemplateBasedGraphGeneratorTests
         terminalTemplateMock.Setup(x => x.Create(It.IsAny<IGraphTemplateContext<object>>()))
             .Returns(terminalNode);
 
-        var wayGraph = new Graph<GraphWay<object>>();
+        var wayGraph = new DirectedGraph<GraphWay<object>>();
 
         var way = new GraphWay<object>(new []
         {
@@ -52,7 +52,7 @@ public class TemplateBasedGraphGeneratorTests
     {
         // ARRANGE
         
-        var wayGraph = new Graph<GraphWay<object>>();
+        var wayGraph = new DirectedGraph<GraphWay<object>>();
 
         var way1TemplateMock = new Mock<IGraphTemplate<object>>();
         var way1Node = Mock.Of<IGraphNode<object>>();

@@ -1,3 +1,6 @@
 namespace CombatDicesTeam.Graphs.Generation.TemplateBased;
 
-public sealed record  GraphTemplateContext<TNodePayload>(IList<IGraphNode<TNodePayload>> CurrentWay): IGraphTemplateContext<TNodePayload>;
+/// <summary>
+/// Simple implementation of generation context.
+/// </summary>
+public sealed record  GraphTemplateContext<TNodePayload>(IReadOnlyList<IGraphNode<TNodePayload>> CurrentWay): IGraphTemplateContext<TNodePayload>;
