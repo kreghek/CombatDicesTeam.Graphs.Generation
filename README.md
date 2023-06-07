@@ -94,7 +94,7 @@ Finally, create templates. There is example:
 ```c#
 class CombatLocationTemplate: IGraphTemplate<ILocationData>
 {
-    IGraphNode<TNodePayload> Create(IGraphTemplateContext<ILocationData> context)
+    IGraphNode<ILocationData> Create(IGraphTemplateContext<ILocationData> context)
 	{
 	    // Create instance of combat implementation of ILocationData.
 	}
